@@ -1,0 +1,9 @@
+[Unit]
+Description=udm-wireguard - setup wireguard VPNs with complex configurations
+After=network.target
+
+[Service]
+ExecStart=/data/custom/wireguard/udm-wireguard.sh
+
+[Install]
+WantedBy=multi-user.target

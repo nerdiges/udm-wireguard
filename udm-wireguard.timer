@@ -1,0 +1,11 @@
+[Unit]
+Description=Regelmäßiger Check der wireguard Konfiguration.
+
+[Timer]
+OnBootSec=30sec
+OnUnitInactiveSec=2min
+Persistent=true
+Unit=udm-wireguard.service
+
+[Install]
+WantedBy=timers.target

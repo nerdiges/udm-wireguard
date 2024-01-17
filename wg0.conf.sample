@@ -1,0 +1,13 @@
+[Interface]
+Address = 10.0.0.2/32, fd00::2/128
+PrivateKey = add_private_key_here
+ListenPort = 21841
+
+[Peer]
+PublicKey = add_public_key_here
+PresharedKey = add_psk_here
+Endpoint = your.endpoint.com:21841
+AllowedIPs = 10.1.0.0/19, 192.168.96.0/21, 192.168.104.0/21, 192.168.120.0/21
+AllowedIPs = fd01::/32, fd02::/16, fd03::/16, fd04::/16
+# This is for if you're behind a NAT and want the connection to be kept alive.
+PersistentKeepalive = 25
