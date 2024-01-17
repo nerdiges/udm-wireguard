@@ -17,7 +17,7 @@ Die eingerichteten Wireguard-Interfaces werden wie LAN-Interfaces behandelt und 
 ## Installation
 Nachdem eine Verbindung per SSH zur UDM/UDM Pro hergestellt wurde wird udm-wireguard folgendermaßen installiert:
 
-### 1. Download der Dateien 
+1. Download der Dateien 
 
 ```
 mkdir -p /data/custom
@@ -26,7 +26,7 @@ git clone https://github.com/nerdiges/udm-wireguard.git /data/custom/wireguard
 chmod +x /data/custom/wireguard/udm-wireguard.sh
 ```
 
-### 2. Parameter im Script anpassen (optional)
+2. Parameter im Script anpassen (optional)
 Im Script kann über eine Variablen das Verzeichnis hinterlegt werden, in dem die wireguard Config-Files abgelegt werden:
 
 ```
@@ -37,7 +37,7 @@ conf_dir="/data/custom/wireguard/"
 
 Dieser PArameter muss in der Regel nicht angepasst weden.
 
-### 3. Einrichten der systemd-Services
+3. Einrichten der systemd-Services
 Ist auf der UDM-Pro auch das Script [udm-firewall](https://github.com/nerdiges/udm-firewall) installiert, kann dieser Schritt übersprungen werden, da das Script automatisch von [udm-firewall](https://github.com/nerdiges/udm-firewall) mit ausgeführt wird. Damit das funktioniert müssen sowohl das [udm-firewall](https://github.com/nerdiges/udm-firewall) als auch udm-wireguard, wie in den jeweiligen README.md beschrieben installiert wurden. 
 
 ```
@@ -56,7 +56,7 @@ systemctl start udm-wireguard.timer
 systemctl status udm-wireguard.timer udm-wireguard.service
 ```
 
-### 4. Wireguard Config-Files
+4. Wireguard Config-Files
 Damit wireguard Interfaces angelegt werden, müssen die entsprechenden wireguard Config-Files erstellt und im Verzeichnis `$conf_dir` (siehe oben Punkt 2) abgelegt werden.
 
 Der Dateiname 
