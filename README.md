@@ -9,7 +9,11 @@ Unifi Dream Machine Pro mit UnifiOS Version 3.x. Erfolgreich getestet mit UnifiO
 ## Funktionsweise
 Das Script `udm-wireguard.sh` wird bei jedem Systemstart und anschließend alle 2 Minuten per systemd ausgeführt. 
 
-Die eingerichteten Wireguard-Interfaces werden wie LAN-Interfaces behandelt und entsprechend im Firewall-Regelwerk integriert. Die dabei erstellten Regeln werden bei Änderungen an der Netzwerkkonfiguration in der GUI regelmäßig wieder überschrieben. Damit die VPN-Verbindungen dauerhaft integriert werden, wird regelmäßig überprüft, ob die Firewall-Regeln noch passen. Neben dem systemd-Service wird daher auch ein systemd-Timer eingerichtet der das Script alle 2 Minuten neu startet und so die Regeln bei Bedarf wiederherstellt.
+Die eingerichteten Wireguard-Interfaces werden wie LAN-Interfaces behandelt und im Firewall-Regelwerk integriert. Die dabei erstellten Regeln werden bei Änderungen an der Netzwerkkonfiguration in der GUI regelmäßig wieder überschrieben. Damit die VPN-Verbindungen dauerhaft integriert werden, wird regelmäßig überprüft, ob die Firewall-Regeln noch passen. Neben dem systemd-Service wird daher auch ein systemd-Timer eingerichtet der das Script alle 2 Minuten neu startet und so die Regeln bei Bedarf wiederherstellt.
+
+## Features
+- Verbindungen /data/custom/wireguard/*.conf aufbauen
+- Wireguard Interfaces im Firewall-Regelwerk wie LAN Interfaces einbinden 
 
 ## Hinweis
 **ACHTUNG:** Die Wireguard Interfaces werden vom Script wie normale LAN-Interfaces behandelt! In der Standardkonfiguration können mit dem VPN verbundene Geräte auf alle Systeme und Dienste uneingeschränkt zugreifen. Für eine angemessene Netzwerktrennung müssen daher in der GUI entsprechende Regeln eingefügt werden. Alternativ kann auch [udm-firewall](https://github.com/nerdiges/udm-firewall) für die NEtzwerktrennung genutzt werden.

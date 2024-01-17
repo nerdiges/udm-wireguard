@@ -2,7 +2,7 @@
 Description=Regelmäßiger Check der wireguard Konfiguration.
 
 [Timer]
-OnBootSec=30sec
+OnBootSec=10sec
 OnUnitInactiveSec=2min
 Persistent=true
 Unit=udm-wireguard.service
