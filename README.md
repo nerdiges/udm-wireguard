@@ -15,6 +15,9 @@ Die eingerichteten Wireguard-Interfaces werden wie LAN-Interfaces behandelt und 
 - Verbindungen /data/custom/wireguard/*.conf aufbauen
 - Wireguard Interfaces im Firewall-Regelwerk wie LAN Interfaces einbinden 
 
+## Disclaimer
+Änderungen die dieses Script an der Konfiguration der UDM-Pro vornimmt, werden von Ubiquiti nicht offiziell unterstützt und können zu Fehlfunktionen oder Garantieverlust führen. Alle Änderungen werden auf eigene Gefahr durchgeführt. Vor der Installation der Scripte, bitte unbedingt an Backups denken!
+
 ## Hinweis
 **ACHTUNG:** Die Wireguard Interfaces werden vom Script wie normale LAN-Interfaces behandelt! In der Standardkonfiguration können mit dem VPN verbundene Geräte auf alle Systeme und Dienste uneingeschränkt zugreifen. Für eine angemessene Netzwerktrennung müssen daher in der GUI entsprechende Regeln eingefügt werden. Alternativ kann auch [udm-firewall](https://github.com/nerdiges/udm-firewall) für die NEtzwerktrennung genutzt werden.
 
