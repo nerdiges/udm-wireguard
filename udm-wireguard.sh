@@ -40,7 +40,7 @@ for conf_file in ${conf_dir}/*.conf; do
 
         # As ruleset is reset, when changes are made via GUI it can be assumed that script
         # can be stopped when wireguard interfaces are not considered in fw rule set.
-        if ( iptables --list-rules | grep -e "-i $wg_if " &&  ip6tables --list-rules | grep -e "-i $wg_if " ); then 
+        if ( iptables --list-rules | grep -e "-i $wg_if " &> /dev/null &&  ip6tables --list-rules | grep -e "-i $wg_if "  &> /dev/null ); then 
             logger "$me: Found wireguard rules for $wg_if. Nothing to do."
         else
 
