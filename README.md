@@ -38,9 +38,19 @@ chmod +x /data/custom/wireguard/udm-wireguard.sh
 Im Script kann über eine Variablen das Verzeichnis hinterlegt werden, in dem die wireguard Config-Files abgelegt werden:
 
 ```
-# Directory with wireguard config files. All *.conf files in
+##############################################################################################
+#
+# Configuration
+#
+
+# directory with wireguard config files. All *.conf files in
 # the directory will be considered as valid wireguard configs
 conf_dir="/data/custom/wireguard/"
+
+#
+# No further changes should be necessary beyond this line.
+#
+######################################################################################
 ```
 
 Dieser Parameter muss in der Regel nicht angepasst weden.
