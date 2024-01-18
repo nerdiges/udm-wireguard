@@ -4,7 +4,7 @@ Manuelle Wiregurad Konfiguration auf der UDM Pro.
 In der GUI der UDM Pro können mittlerweile wireguard VPNs eingerichtet weden. Allerdings sind hier eher nur Standardkonfigurationen möglich. Komplexere Site2Site Setups mit speziellen Paramtern konnte ich über di GUI nicht nutzen. Stattdessen können mit udm-wireguard die entsprechenden Interfaces direkt und ohne GUI eingerichtet werden.
 
 ## Voraussetzungen
-Unifi Dream Machine Pro mit UnifiOS Version 3.x. Erfolgreich getestet mit UnifiOS 3.2.7.
+Unifi Dream Machine Pro mit UnifiOS Version 3.x. Erfolgreich getestet mit UnifiOS 3.2.7 und Network App 8.0.26.
 
 ## Funktionsweise
 Das Script `udm-wireguard.sh` wird bei jedem Systemstart und anschließend alle 2 Minuten per systemd ausgeführt. 
