@@ -30,7 +30,7 @@ conf_dir="/data/custom/wireguard/"
 me=$(basename $0)
 
 # include local configuration if available
-[ -e ${me%.*}.conf ] && source ${me%.*}.conf
+[ -e "$(dirname $0)/${me%.*}.conf" ] && source "$(dirname $0)/${me%.*}.conf"
 
 for conf_file in ${conf_dir}/*.conf; do
     if [ $conf_file != "${me%.*}.conf" ]; then

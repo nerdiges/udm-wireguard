@@ -16,7 +16,7 @@ Die eingerichteten Wireguard-Interfaces werden wie LAN-Interfaces behandelt und 
 - Wireguard Interfaces im Firewall-Regelwerk wie LAN Interfaces einbinden 
 
 ## Disclaimer
-Änderungen die dieses Script an der Konfiguration der UDM-Pro vornimmt, werden von Ubiquiti nicht offiziell unterstützt und können zu Fehlfunktionen oder Garantieverlust führen. Alle Änderungen werden auf eigene Gefahr durchgeführt. Vor der Installation der Scripte, bitte unbedingt an Backups denken!
+Änderungen die dieses Script an der Konfiguration der UDM-Pro vornimmt, werden von Ubiquiti nicht offiziell unterstützt und können zu Fehlfunktionen oder Garantieverlust führen. Alle BAÄnderungenkup werden auf eigene Gefahr durchgeführt. Daher vor der Installation: Backup, Backup, Backup!!!
 
 ## Hinweis
 **ACHTUNG:** Die Wireguard Interfaces werden vom Script wie normale LAN-Interfaces behandelt! In der Standardkonfiguration können mit dem VPN verbundene Geräte auf alle Systeme und Dienste uneingeschränkt zugreifen. Für eine angemessene Netzwerktrennung müssen daher in der GUI entsprechende Regeln eingefügt werden. Alternativ kann auch [udm-firewall](https://github.com/nerdiges/udm-firewall) für die NEtzwerktrennung genutzt werden.
@@ -82,6 +82,14 @@ systemctl status udm-wireguard.timer udm-wireguard.service
 Damit wireguard Interfaces angelegt werden, müssen die entsprechenden wireguard Config-Files erstellt und im Verzeichnis `$conf_dir` (siehe oben Punkt 2) abgelegt werden.
 
 Der Dateiname der Konfigurationsdateien ist dabei entscheidend für den Interface-Namen. Alles vor dem Suffix `.conf` wird als Interfacename genutzt. Die Datei `wg0.conf` erzeugt somit beispielsweise das Interface `wg0`.
+
+## Update
+
+Das Script kann mit folgenden Befehlen aktualisiert werden:
+```
+cd /data/custom/wireguard
+git pull origin
+```
 
 ## Known Issues
 1. Der DNS-Parameter in wireguard Config-Files führt zu einer Fehlermeldung, da das Paket openresolv im UnifiOS per Default nicht installiert ist. 
