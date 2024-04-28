@@ -3,7 +3,15 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
  
-## [0.9.1] - 2024-04-28 [Unreleased]
+## [0.9.2] - 2024-04-28 
+
+### Security
+
+- Die VPN-Interfaces wurden teilweise nciht korrekt in das Firewall-Regelwerk der UDM-Pro integriert. Das 
+  konnte dazu führen, dass VPN-Clients ungefiltert auf das interne Netzwerk zugreifen konnten.  
+
+
+## [0.9.1] - 2024-04-28 
 
 ### Breaking Changes
 
