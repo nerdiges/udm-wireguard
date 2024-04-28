@@ -19,7 +19,7 @@ Die eingerichteten Wireguard-Interfaces werden wie LAN-Interfaces behandelt und 
 Änderungen die dieses Script an der Konfiguration der UDM-Pro vornimmt, werden von Ubiquiti nicht offiziell unterstützt und können zu Fehlfunktionen oder Garantieverlust führen. Alle BAÄnderungenkup werden auf eigene Gefahr durchgeführt. Daher vor der Installation: Backup, Backup, Backup!!!
 
 ## Hinweis
-**ACHTUNG:** Die Wireguard Interfaces werden vom Script wie normale LAN-Interfaces behandelt! In der Standardkonfiguration können mit dem VPN verbundene Geräte auf alle Systeme und Dienste uneingeschränkt zugreifen. Für eine angemessene Netzwerktrennung müssen daher in der GUI entsprechende Regeln eingefügt werden. Alternativ kann auch [udm-firewall](https://github.com/nerdiges/udm-firewall) für die NEtzwerktrennung genutzt werden.
+**ACHTUNG:** Die Wireguard Interfaces werden vom Script wie normale LAN-Interfaces behandelt! In der Standardkonfiguration können mit dem VPN verbundene Geräte auf alle Systeme und Dienste uneingeschränkt zugreifen. Für eine angemessene Netzwerktrennung müssen daher in der GUI entsprechende Regeln eingefügt werden. Alternativ kann auch [udm-firewall](https://github.com/nerdiges/udm-firewall) für die Netzwerktrennung genutzt werden.
 
 ## Installation
 Nachdem eine Verbindung per SSH zur UDM/UDM Pro hergestellt wurde wird udm-wireguard folgendermaßen installiert:
@@ -45,7 +45,7 @@ Im Script kann über eine Variablen das Verzeichnis hinterlegt werden, in dem di
 
 # directory with wireguard config files. All *.conf files in
 # the directory will be considered as valid wireguard configs
-conf_dir="/data/custom/wireguard/"
+conf_dir="/data/custom/wireguard/conf/"
 
 #
 # No further changes should be necessary beyond this line.
@@ -53,9 +53,7 @@ conf_dir="/data/custom/wireguard/"
 ######################################################################################
 ```
 
-Dieser Parameter muss in der Regel nicht angepasst weden.
-
-Die Konfiguration kann auch in der Datei udm-wireguard.conf gespeichert werden, die bei einem Update nicht überschrieben wird.
+Dieser Parameter muss in der Regel nicht angepasst weden. Wird der PArameter angepasst, so sollte er in der Datei udm-wireguard.conf udm-wireguard.conf gespeichert werden, die bei einem Update nicht überschrieben wird.
 
 **3. Einrichten der systemd-Services**
 

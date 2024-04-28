@@ -1,0 +1,13 @@
+##############################################################################################
+#
+# Configuration
+#
+
+# directory with wireguard config files. All *.conf files in
+# the directory will be considered as valid wireguard configs
+conf_dir="/data/custom/wireguard/conf/"
+
+#
+# No further changes should be necessary beyond this line.
+#
+######################################################################################
