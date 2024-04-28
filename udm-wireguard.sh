@@ -59,6 +59,7 @@ for conf_file in ${conf_dir}/*.conf; do
         #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         # add rule for VPN interface to UBIOS_FORWARD_IN_USER
         #
+        rule="-A UBIOS_FORWARD_IN_USER -i _IF_ -j UBIOS_LAN_LOCAL_USER"
         iptables --list-rules | grep -e "${rule/_IF_/$wg_if}" &> /dev/null || ( 
             iptables ${rule/_IF_/$wg_if} &&
                 logger "$me: added IPv4 rule: ${rule/_IF_/$wg_if}" ||
