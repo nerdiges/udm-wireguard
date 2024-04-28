@@ -1,50 +1,31 @@
 # Change Log
 All notable changes to this project will be documented in this file.
  
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](http://keepachangelog.com/).
  
-## [Unreleased] - yyyy-mm-dd
- 
-Here we write upgrading notes for brands. It's a team effort to make them as
-straightforward as possible.
- 
+## [0.9.1] - 2024-04-28 [Unreleased]
+
+### Breaking Changes
+
+- Die Wireguard-Konfigurations-Dateien wurden in einen Unterordner verschoben. Bei einem Update sollten
+  daher bereits bestehende Konfigurationsdateien in das Verzeichnis conf verschoben werden. Alternativ kann 
+  der Konfigurationsparameter $conf_dir in der Datei udm-wireguard.conf angepasst werden. 
+
 ### Added
-- [PROJECTNAME-XXXX](http://tickets.projectname.com/browse/PROJECTNAME-XXXX)
-  MINOR Ticket title goes here.
-- [PROJECTNAME-YYYY](http://tickets.projectname.com/browse/PROJECTNAME-YYYY)
-  PATCH Ticket title goes here.
- 
-### Changed
- 
+
+-  n/a
+
+### Changes
+
+-  n/a
+
 ### Fixed
  
-## [1.2.4] - 2017-03-15
-  
-Here we would have the update steps for 1.2.4 for people to follow.
+- Wenn es sich bei einem Config-File um die udm-wireguard.conf, so wird diese nicht mehr an wg-quick übergeben
+  um Fehlermeldungen zu vermeiden.
+
+## [0.9.0] - 2024-01-19
  
 ### Added
- 
-### Changed
-  
-- [PROJECTNAME-ZZZZ](http://tickets.projectname.com/browse/PROJECTNAME-ZZZZ)
-  PATCH Drupal.org is now used for composer.
- 
-### Fixed
- 
-- [PROJECTNAME-TTTT](http://tickets.projectname.com/browse/PROJECTNAME-TTTT)
-  PATCH Add logic to runsheet teaser delete to delete corresponding
-  schedule cards.
- 
-## [1.2.3] - 2017-03-14
- 
-### Added
-   
-### Changed
- 
-### Fixed
- 
-- [PROJECTNAME-UUUU](http://tickets.projectname.com/browse/PROJECTNAME-UUUU)
-  MINOR Fix module foo tests
-- [PROJECTNAME-RRRR](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
-  MAJOR Module foo's timeline uses the browser timezone for date resolution 
+
+- Initiale Version mit grundelgender Funktionalität

@@ -33,7 +33,7 @@ me=$(basename $0)
 [ -e "$(dirname $0)/${me%.*}.conf" ] && source "$(dirname $0)/${me%.*}.conf"
 
 for conf_file in ${conf_dir}/*.conf; do
-    if [ $conf_file != "${me%.*}.conf" ]; then
+    if [ $(basename $conf_file) != "${me%.*}.conf" ]; then
 
         wg_if=$(basename $conf_file .conf)
         wg show $wg_if || wg-quick up $conf_file
