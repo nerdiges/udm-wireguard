@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   über VPN ermöglicht wird, müssen daher in der GUI z.B. unter Security > Traffic & Firewall Rules 
   entsprechende Regeln im Abschnitt Internet eingerichtet werden.
 
+### Fixed
+- Type in script fixed 
 
 ## [0.9.2] - 2024-04-28 
 

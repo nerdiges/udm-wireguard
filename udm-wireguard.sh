@@ -95,7 +95,7 @@ for conf_file in ${conf_dir}/*.conf; do
         ) && logger "$me: IPv6 rule ${rule} already exists. Nothing to do."
 
         #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        # add allow related/established to UBIOS_LAN_IN_USER if necessary
+        # add allow related/established to UBIOS_${zone}_IN_USER if necessary
         #
         rule="-A UBIOS_${zone}_IN_USER -m conntrack --ctstate RELATED,ESTABLISHED.*-j RETURN"
         iptables --list-rules | grep -e "$rule" &> /dev/null || (
