@@ -2,7 +2,17 @@
 All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
- 
+
+## [0.9.3] - 2024-04-28 
+
+### Breaking Changes / Security
+
+- Die wireguard Interfaces werden in der Default-Einstellung nicht mehr wie LAN- sondern, wie bei über 
+  die GUI eingerichteten VPN-Verbdinungen als WAN-Interfaces behandelt. Damit der Zugriff auf Dienste 
+  über VPN ermöglicht wird, müssen daher in der GUI z.B. unter Security > Traffic & Firewall Rules 
+  entsprechende Regeln im Abschnitt Internet eingerichtet werden.
+
+
 ## [0.9.2] - 2024-04-28 
 
 ### Security
