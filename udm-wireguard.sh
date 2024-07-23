@@ -37,7 +37,7 @@ me=$(basename $0)
 [ -e "$(dirname $0)/${me%.*}.conf" ] && source "$(dirname $0)/${me%.*}.conf"
 
 
-# define 
+# set zone variable for integration
 [[ $lan_integration == "true" ]] && zone="LAN" || zone="WAN"
 
 for conf_file in ${conf_dir}/*.conf; do
@@ -82,7 +82,7 @@ for conf_file in ${conf_dir}/*.conf; do
         #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         # add rule for VPN interface to UBIOS_FORWARD_OUT_USER 
         #
-        rule="-A UBIOS_FORWARD_OUT_USER -o ${wg_if} -j UBIOS_${zone}OUT_USER"
+        rule="-A UBIOS_FORWARD_OUT_USER -o ${wg_if} -j UBIOS_${zone}_OUT_USER"
         iptables --list-rules | grep -e "${rule}" &> /dev/null || ( 
             iptables ${rule} &&
                 logger "$me: added IPv4 rule: ${rule}" ||
