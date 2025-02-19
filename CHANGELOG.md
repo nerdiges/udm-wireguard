@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## [0.9.3] - 2024-04-28 
 
 > [!IMPORTANT]
-> Vital information required for users to attain success.
+> Letzte Version die mit UnifiOS ohne Zone Based Firewalls funktioniert.
 
 ### Breaking Changes / Security
 
