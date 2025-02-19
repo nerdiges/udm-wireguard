@@ -7,10 +7,6 @@
 # the directory will be considered as valid wireguard configs
 conf_dir="/data/custom/wireguard/conf/"
 
-# enforce integration of VPN interfaces as LAN interfaces.
-# WARNING: LAN integration is considered less secure!
-lan_integration=false
-
 #
 # No further changes should be necessary beyond this line.
 #

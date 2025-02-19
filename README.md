@@ -4,22 +4,20 @@ Manuelle Wiregurad Konfiguration auf der UDM Pro.
 In der GUI der UDM Pro können mittlerweile wireguard VPNs eingerichtet weden. Allerdings sind hier eher nur Standardkonfigurationen möglich. Komplexere Site2Site-Setups mit speziellen Parametern können über die GUI nicht angepasst werden. Mit udm-wireguard können dieWireguard-Verbindgungen direkt und ohne GUI eingerichtet werden.
 
 ## Voraussetzungen
-Unifi Dream Machine Pro mit UnifiOS Version 4.x. Erfolgreich getestet mit UnifiOS 4.0.6 und Network App 8.3.32.
+
+> [!IMPORTANT]
+> <strong>UnifiOS 4.1.x</strong> und aktivierten <strong>$\color{Bittersweet}{Zone\ Based\ Firewall}$</strong> Regelwerk. Erfolgreich getestet mit UnifiOS 4.1.13 und Network App 9.0.114.
 
 ## Funktionsweise
 Das Script `udm-wireguard.sh` wird bei jedem Systemstart und anschließend alle 2 Minuten per systemd ausgeführt. 
 
-Ab Version 0.9.3 werden die  Wireguard-Interfaces in der Default-Konfiguration wie WAN-Interfaces behandelt und entsprechend im Firewall-Regelwerk integriert. Dies entspricht dem Verhalten der GUI. Die Integration der VPN-Interfaces wird bei Änderungen an der Netzwerkkonfiguration in der GUI regelmäßig wieder überschrieben. Damit die VPN-Verbindungen dauerhaft integriert werden, wird regelmäßig überprüft, ob die Firewall-Regeln noch passen. Neben dem systemd-Service wird daher auch ein systemd-Timer eingerichtet der das Script alle 2 Minuten neu startet und so die Regeln bei Bedarf wiederherstellt.
+Ab Version 0.9.4 setzt das Script ein Zone Based Firewall Regelwerk vorraus. Die  Wireguard-Interfaces werden wie VPN-Verbindungen behandelt und in die VPN-Zone integriert. Die Integration der VPN-Interfaces wird bei Änderungen an der Netzwerkkonfiguration in der GUI regelmäßig wieder überschrieben. Damit die VPN-Verbindungen dauerhaft integriert werden, wird regelmäßig überprüft, ob die Firewall-Regeln noch passen. Neben dem systemd-Service wird daher auch ein systemd-Timer eingerichtet der das Script alle 2 Minuten neu startet und so die Regeln bei Bedarf wiederherstellt.
 
-Da die VPN-Interfaces wie WAN-Interfaces behandelt werden, müssen in der GUI z.B. unter Security > Traffic & Firewall Rules entsprechende Regeln im Abschnitt Internet eingerichtet werden.
-
-Hinweis: Durch Anpassung der Konfigurationsdatei udm-wireguard.conf die Einbindung der VPN-Interfaces als LAN-Interfaces (Verhalten von udm-wireguard < 0.9.3) erzwungen werden. NAchteile dieses Vorgehens sind:
-- Ohne zusätzliche anpassungen an den Firewall-Regeln wird zwischen LAN-Segmenten lediglich gerouted und nicht gefiltert
-- Eine Migration von udm-wireguard zu Wireguard-Verbindungen die per GUI verwaltet werden, wird erschwert.
+Da die VPN-Interfaces der VPN-Zone zugeordnet werden, müssen in der GUI z.B. unter Security > Traffic & Firewall Rules entsprechende Regeln eingerichtet werden.
 
 ## Features
 - Verbindungen /data/custom/wireguard/*.conf aufbauen
-- Wireguard Interfaces im Firewall-Regelwerk der UDM-Pro als WAN Interfaces einbinden 
+- Wireguard Interfaces im Firewall-Regelwerk der UDM-Pro der VPN-Zone zuordnen 
 
 ## Disclaimer
 Änderungen die dieses Script an der Konfiguration der UDM-Pro vornimmt, werden von Ubiquiti nicht offiziell unterstützt und können zu Fehlfunktionen oder Garantieverlust führen. Alle BAÄnderungenkup werden auf eigene Gefahr durchgeführt. Daher vor der Installation: Backup nicht vergessen!!!
@@ -51,21 +49,15 @@ Im Script kann über eine Variablen das Verzeichnis hinterlegt werden, in dem di
 # the directory will be considered as valid wireguard configs
 conf_dir="/data/custom/wireguard/conf/"
 
-# enforce integration of VPN interfaces as LAN interfaces
-# WARNING: LAN integration is considered less secure!
-lan_integration=false
-
 #
 # No further changes should be necessary beyond this line.
 #
 ######################################################################################
 ```
 
-Dieser Parameter muss in der Regel nicht angepasst weden. Wird der PArameter angepasst, so sollte er in der Datei udm-wireguard.conf udm-wireguard.conf gespeichert werden, die bei einem Update nicht überschrieben wird.
+Dieser Parameter muss in der Regel nicht angepasst weden. Soll der Pfad zu den Wireguard-Configs angepasst werden, so sollte der Wert in der Datei udm-wireguard.conf gespeichert werden, die bei einem Update nicht überschrieben wird.
 
 **3. Einrichten der systemd-Services**
-
-Ist auf der UDM-Pro auch das Script [udm-firewall](https://github.com/nerdiges/udm-firewall) installiert, kann dieser Schritt übersprungen werden, da das Script automatisch von [udm-firewall](https://github.com/nerdiges/udm-firewall) mit ausgeführt wird. Damit das funktioniert müssen sowohl das [udm-firewall](https://github.com/nerdiges/udm-firewall) als auch udm-wireguard, wie in den jeweiligen README.md beschrieben installiert wurden. 
 
 ```
 # Install udm-wireguard.service und timer definition file in /etc/systemd/system via:

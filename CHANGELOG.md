@@ -3,7 +3,18 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [0.9.4] - 2025-02-19 
+
+### Breaking Changes / Security
+
+> [!IMPORTANT]
+> Script wurde für das neue Firewall-Konzept (Zone Based Firewalls)  angepasst und funktioniert daher nur noch mit UnifiOS >= 4.1.x und nach der Migration des Firewall-Regelwerks auf Zone Based Firewalls.
+
+
 ## [0.9.3] - 2024-04-28 
+
+> [!IMPORTANT]
+> Vital information required for users to attain success.
 
 ### Breaking Changes / Security
 
